@@ -62,6 +62,10 @@ kover.xmlReport {
 }
 
 tasks {
+    jar {
+        from("../../../target/debug/raven_intellij_natives.dll")
+    }
+
     wrapper {
         gradleVersion = properties("gradleVersion").get()
     }
