@@ -9,6 +9,8 @@ import org.jetbrains.annotations.NotNull;
 public class RavenParser implements PsiParser {
     @Override
     public @NotNull ASTNode parse(@NotNull IElementType root, @NotNull PsiBuilder builder) {
-        return builder.getTreeBuilt();
+        throw new RuntimeException("Test!");
+        /*builder.mark().done(RavenTypes.EOF);
+        return builder.getTreeBuilt();*/
     }
 }

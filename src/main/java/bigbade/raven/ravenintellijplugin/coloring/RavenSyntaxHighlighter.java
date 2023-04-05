@@ -14,13 +14,10 @@ import org.jetbrains.annotations.NotNull;
 import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAttributesKey;
 
 public class RavenSyntaxHighlighter extends SyntaxHighlighterBase {
-    public static final TextAttributesKey COMMENT =
-            createTextAttributesKey("RAVEN_COMMENT", DefaultLanguageHighlighterColors.LINE_COMMENT);
     public static final TextAttributesKey BAD_CHARACTER =
             createTextAttributesKey("RAVEN_BAD_CHARACTER", HighlighterColors.BAD_CHARACTER);
 
     private static final TextAttributesKey[] BAD_CHAR_KEYS = new TextAttributesKey[]{BAD_CHARACTER};
-    private static final TextAttributesKey[] COMMENT_KEYS = new TextAttributesKey[]{COMMENT};
     private static final TextAttributesKey[] EMPTY_KEYS = new TextAttributesKey[0];
 
     @NotNull
@@ -32,10 +29,7 @@ public class RavenSyntaxHighlighter extends SyntaxHighlighterBase {
     @Override
     @NotNull
     public TextAttributesKey[] getTokenHighlights(IElementType tokenType) {
-        if (tokenType.equals(RavenTypes.COMMENT)) {
-            return COMMENT_KEYS;
-        }
-        if (tokenType.equals(TokenType.BAD_CHARACTER)) {
+        if (tokenType.equals(RavenTypes.InvalidCharacters)) {
             return BAD_CHAR_KEYS;
         }
         return EMPTY_KEYS;

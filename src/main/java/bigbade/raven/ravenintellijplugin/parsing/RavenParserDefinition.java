@@ -37,7 +37,7 @@ public class RavenParserDefinition implements ParserDefinition {
     @Override
     @NotNull
     public TokenSet getCommentTokens() {
-        return RavenTokenSets.COMMENT;
+        return TokenSet.EMPTY;
     }
 
     @Override
